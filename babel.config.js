@@ -12,7 +12,7 @@ module.exports = function (api) {
         {
           root: ["./"],
           alias: {
-            "@": "./" // This matches your tsconfig paths
+            "@": "./" 
           },
         },
       ],
