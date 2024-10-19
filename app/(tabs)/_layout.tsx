@@ -1,6 +1,7 @@
-import { Tabs } from "expo-router";
+import { Slot, Tabs } from "expo-router";
 
 import { Colors } from "@/constants/Colors";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function TabLayout() {
   return (
