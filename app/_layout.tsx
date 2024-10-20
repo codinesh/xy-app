@@ -12,6 +12,11 @@ import { useEffect } from "react";
 import "react-native-reanimated";
 import { SafeAreaView } from "react-native-safe-area-context";
 
+export {
+  // Catch any errors thrown by the Layout component.
+  ErrorBoundary,
+} from "expo-router";
+
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
@@ -33,9 +38,18 @@ export default function RootLayout() {
   return (
     <GluestackUIProvider mode="light">
       <ThemeProvider value={DefaultTheme}>
-        <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack initialRouteName="(auth)" screenOptions={{ headerShown: false }}>
+          <Stack.Screen
+            name="(tabs)"
+            options={{ headerShown: false, statusBarColor: "#434343" }}
+          />
+          <Stack.Screen
+            name="(auth)"
+            options={{ headerShown: false, statusBarColor: "#434343" }}
+          />
           <Stack.Screen name="+not-found" />
+          <Stack.Screen name="settings" />
+          <Stack.Screen name="signin" />
         </Stack>
       </ThemeProvider>
     </GluestackUIProvider>

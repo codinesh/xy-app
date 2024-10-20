@@ -3,11 +3,9 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 const Explore = () => {
   return (
-    <SafeAreaView>
-      <View>
-        <Text>Explore</Text>
-      </View>
-    </SafeAreaView>
+    <View>
+      <Text>Explore</Text>
+    </View>
   );
 };
 
