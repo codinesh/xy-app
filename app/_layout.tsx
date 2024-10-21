@@ -10,7 +10,11 @@ import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import "react-native-reanimated";
-import { SafeAreaView } from "react-native-safe-area-context";
+import {
+  SafeAreaView,
+  useSafeAreaFrame,
+  useSafeAreaInsets,
+} from "react-native-safe-area-context";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -25,6 +29,8 @@ export default function RootLayout() {
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
   });
 
+  const safeArea = useSafeAreaFrame();
+  const safeAreaInsets = useSafeAreaInsets();
   useEffect(() => {
     if (loaded) {
       SplashScreen.hideAsync();
@@ -35,10 +41,17 @@ export default function RootLayout() {
     return null;
   }
 
+  console.log(safeAreaInsets);
+
   return (
-    <GluestackUIProvider mode="light">
+    <GluestackUIProvider
+      mode="light"
+      style={{
+        marginTop: safeAreaInsets.top,
+      }}
+    >
       <ThemeProvider value={DefaultTheme}>
-        <Stack initialRouteName="(auth)" screenOptions={{ headerShown: false }}>
+        <Stack initialRouteName="(tabs)" screenOptions={{ headerShown: false }}>
           <Stack.Screen
             name="(tabs)"
             options={{ headerShown: false, statusBarColor: "#434343" }}

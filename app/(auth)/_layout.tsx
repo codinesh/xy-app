@@ -6,27 +6,10 @@ import { Box } from "@/components/ui/box";
 
 const AuthLayout = () => {
   return (
-    <SafeAreaView>
-      <View className="w-full">
-        <Text>Authentication Layout</Text>
-        <Link href="/">
-          <Text>Home</Text>
-        </Link>
-
-        <Link href="/">
-          <Text>Settings</Text>
-        </Link>
-        <Box className="p-6">
-          <Stack
-            initialRouteName="signin"
-            screenOptions={{ headerShown: false }}
-          >
-            <Stack.Screen name="signin" />
-            <Stack.Screen name="signup" />
-          </Stack>
-        </Box>
-      </View>
-    </SafeAreaView>
+    <Stack initialRouteName="signin" screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="signin" />
+      <Stack.Screen name="signup" />
+    </Stack>
   );
 };
 

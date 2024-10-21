@@ -3,16 +3,50 @@ import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Pressable } from "@/components/ui/pressable";
 import { Link, useRouter } from "expo-router";
+import AuthLayoutWrapper from "@/components/authlayout/AuthLayoutWrapper";
+import { VStack } from "@/components/ui/vstack";
 
 const SignIn = () => {
   const router = useRouter();
   return (
-    <View>
-      <Text>Sign In Page</Text>
-      <Link href="/signup">
-        <Text>Don't have an account? Sign up</Text>
+    <AuthLayoutWrapper name={"Sign up"}>
+      <Link href="/signin">
+        <VStack space="md" className="items-center">
+          <Text>Don't have an account? </Text>
+          <Text>Sign up</Text>
+        </VStack>
       </Link>
-    </View>
+      <Link href="/signin">
+        <VStack space="md" className="items-center">
+          <Text>Don't have an account? </Text>
+          <Text>Sign up</Text>
+        </VStack>
+      </Link>
+      <Link href="/signin">
+        <VStack space="md" className="items-center">
+          <Text>Don't have an account? </Text>
+          <Text>Sign up</Text>
+        </VStack>
+      </Link>
+      <Link href="/signin">
+        <VStack space="md" className="items-center">
+          <Text>Don't have an account? </Text>
+          <Text>Sign up</Text>
+        </VStack>
+      </Link>
+      <Link href="/signin">
+        <VStack space="md" className="items-center">
+          <Text>Don't have an account? </Text>
+          <Text>Sign up</Text>
+        </VStack>
+      </Link>
+      <Link href="/signin">
+        <VStack space="md" className="items-center">
+          <Text>Don't have an account? </Text>
+          <Text>Sign up</Text>
+        </VStack>
+      </Link>
+    </AuthLayoutWrapper>
   );
 };
 
