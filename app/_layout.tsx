@@ -6,15 +6,9 @@ import {
 import "@/global.css";
 import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider";
 import { useFonts } from "expo-font";
-import { Stack } from "expo-router";
+import { Stack, useNavigation } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
-import "react-native-reanimated";
-import {
-  SafeAreaView,
-  useSafeAreaFrame,
-  useSafeAreaInsets,
-} from "react-native-safe-area-context";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -29,27 +23,24 @@ export default function RootLayout() {
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
   });
 
-  const safeArea = useSafeAreaFrame();
-  const safeAreaInsets = useSafeAreaInsets();
+  const navigation = useNavigation();
   useEffect(() => {
     if (loaded) {
       SplashScreen.hideAsync();
     }
   }, [loaded]);
 
+  useEffect(() => {
+    console.log("Nav change");
+    return () => {};
+  }, [navigation.canGoBack()]);
+
   if (!loaded) {
     return null;
   }
 
-  console.log(safeAreaInsets);
-
   return (
-    <GluestackUIProvider
-      mode="light"
-      style={{
-        marginTop: safeAreaInsets.top,
-      }}
-    >
+    <GluestackUIProvider mode="light">
       <ThemeProvider value={DefaultTheme}>
         <Stack initialRouteName="(tabs)" screenOptions={{ headerShown: false }}>
           <Stack.Screen
@@ -62,7 +53,6 @@ export default function RootLayout() {
           />
           <Stack.Screen name="+not-found" />
           <Stack.Screen name="settings" />
-          <Stack.Screen name="signin" />
         </Stack>
       </ThemeProvider>
     </GluestackUIProvider>

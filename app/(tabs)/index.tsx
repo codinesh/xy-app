@@ -5,17 +5,19 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function HomeScreen() {
   return (
-    <Box>
-      <Text>Index</Text>
-      <Link href="/settings">
-        <Text>Settings</Text>
-      </Link>
-      <Link href="/signin">
-        <Text>signin</Text>
-      </Link>
-      <Link href="/signup">
-        <Text>signup</Text>
-      </Link>
-    </Box>
+    <SafeAreaView style={{ backgroundColor: "transparent" }}>
+      <Box className="items-center mx-auto mt-5 h-full w-full">
+        <Text>Index</Text>
+        <Link href="/settings">
+          <Text>Settings</Text>
+        </Link>
+        <Link href="/signin">
+          <Text>signin</Text>
+        </Link>
+        <Link href="/signup">
+          <Text>signup</Text>
+        </Link>
+      </Box>
+    </SafeAreaView>
   );
 }

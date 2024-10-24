@@ -3,7 +3,7 @@ import React, { ReactNode } from "react";
 import { Box } from "../ui/box";
 import { Center } from "../ui/center";
 import { VStack } from "../ui/vstack";
-import { useSafeAreaFrame } from "react-native-safe-area-context";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const AuthLayoutWrapper = ({
   name,
@@ -12,24 +12,24 @@ const AuthLayoutWrapper = ({
   name: string;
   children: ReactNode;
 }) => {
-  const safearea = useSafeAreaFrame();
-  console.log(safearea);
   return (
-    <VStack
-      className="flex-1 items-center p-4"
-      style={{}} // Adjust for safe area on top
-    >
-      {/* Header section */}
-      <View className="w-full items-center mb-6">
-        <Text className="text-xl font-bold">Welcome to xy-app</Text>
-        <Text className="text-lg font-semibold">{name}</Text>
-      </View>
+    <SafeAreaView style={{ height: "100%" }}>
+      <VStack
+        className="flex-1 items-center p-4"
+        style={{}} // Adjust for safe area on top
+      >
+        {/* Header section */}
+        <View className="w-full items-center mb-6">
+          <Text className="text-xl font-bold">Welcome to xy-app</Text>
+          <Text className="text-lg font-semibold">{name}</Text>
+        </View>
 
-      {/* Children centered vertically */}
-      <View className="flex-1 justify-center items-center w-full">
-        <Box className="p-4">{children}</Box>
-      </View>
-    </VStack>
+        {/* Children centered vertically */}
+        <View className="flex-1 justify-center items-center w-full">
+          <Box className="p-4">{children}</Box>
+        </View>
+      </VStack>
+    </SafeAreaView>
   );
 };
 

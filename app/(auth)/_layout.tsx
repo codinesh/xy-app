@@ -6,7 +6,15 @@ import { Box } from "@/components/ui/box";
 
 const AuthLayout = () => {
   return (
-    <Stack initialRouteName="signin" screenOptions={{ headerShown: false }}>
+    <Stack
+      initialRouteName="signin"
+      screenOptions={{
+        headerShown: false,
+        contentStyle: {
+          height: "100%",
+        },
+      }}
+    >
       <Stack.Screen name="signin" />
       <Stack.Screen name="signup" />
     </Stack>
